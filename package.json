@@ -2,20 +2,20 @@
     "name": "autoend",
     "displayName": "Autoend",
     "description": "Automatically inserts / moves semicolon to the end of the line and moves you to next line.",
-    "version": "1.1.4",
-    "license":"GPL-2.0",
-    "publisher": "thousandtyone",
+    "version": "1.2.0",
+    "license": "GPL-2.0",
+    "publisher": "guusw",
     "engines": {
         "vscode": "^1.5.0"
     },
     "icon": "images/icon.png",
-    "homepage": "https://github.com/thousandtyone/autoend",
+    "homepage": "https://github.com/guusw/autoend",
     "repository": {
         "type": "git",
-        "url": "https://github.com/thousandtyone/autoend"
+        "url": "https://github.com/guusw/autoend"
     },
     "bugs": {
-        "url": "https://github.com/thousandtyone/autoend/issues"
+        "url": "https://github.com/guusw/autoend/issues"
     },
     "keywords": [
         "semicolon",
@@ -24,7 +24,6 @@
         "insert semicolon faster",
         "automatically insert semi colon"
     ],
-
     "categories": [
         "Other"
     ],
@@ -34,16 +33,17 @@
     ],
     "main": "./out/src/extension",
     "contributes": {
-        "commands": [{
-            "command": "extension.autoend",
-            "title": "Autoend with Semi Colon"
-        },
-        {
-            "command": "extension.colon.autoen",
-            "title": "Autoend with Colon"
-        }
+        "commands": [
+            {
+                "command": "extension.autoend",
+                "title": "Autoend with Semi Colon"
+            },
+            {
+                "command": "extension.colon.autoen",
+                "title": "Autoend with Colon"
+            }
         ],
-        "keybindings":[
+        "keybindings": [
             {
                 "command": "extension.autoend",
                 "key": ";",
@@ -51,25 +51,33 @@
             },
             {
                 "command": "extension.colon.autoend",
-                "key" : "alt+shift+;",
+                "key": "alt+shift+;",
                 "when": "editorTextFocus"
             }
         ],
         "configuration": {
             "type": "object",
-             "title": "ThousandtyOne Autoend",
-             "properties": {
-                "autoend.autoInsertNewline":{
-                    "type":"boolean",
-                    "default":true,
+            "title": "ThousandtyOne Autoend",
+            "properties": {
+                "autoend.autoInsertNewline": {
+                    "type": "boolean",
+                    "default": true,
                     "description": "Automatically inserts newlines after moving semicolon to the end of the line"
                 },
-                "autoend.autoendWithColon":{
-                    "type":"boolean",
-                    "default":false,
+                "autoend.autoendWithColon": {
+                    "type": "boolean",
+                    "default": false,
                     "description": "Automatically moves colon key to the end of the line instead of semi-colon (works better for languages like python)"
-                }        
-             }
+                },
+                "autoend.ignoredLanguages": {
+                    "type": "array",
+                    "default": [
+                        "plaintext",
+                        "go"
+                    ],
+                    "description": "Specifies languages in which semicolons do not act as line endings and should function normally"
+                }
+            }
         }
     },
     "scripts": {
